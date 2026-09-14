@@ -168,7 +168,8 @@ After generating tests:
 - check alignment with existing test conventions
 - run only existing repository test commands
 - prefer the smallest targeted test command for the affected files or feature area
-- avoid commands that install new dependencies, modify source files, or trigger broad CI workflows unless the user explicitly asks or the repository provides no narrower option
+- avoid commands that install new dependencies or modify source files
+- do not trigger broad, expensive, or CI-oriented workflows unless the user explicitly asks for that level of execution
 
 If tests fail:
 
