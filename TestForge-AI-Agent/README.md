@@ -97,22 +97,24 @@ In other words, the agent definition is reusable; it does **not** assume the cur
 
 ## Project structure
 
-The following tree shows the contents of the `TestForge-AI-Agent/` directory inside this repository:
+The following tree shows the repository layout for this prototype:
 
 ```text
-TestForge-AI-Agent/
+.
 ├── README.md
-├── .github/
-│   └── agents/
-│       └── testforge.agent.md
-├── instructions/
-│   ├── requirement-analysis.md
-│   ├── codebase-analysis.md
-│   ├── test-strategy.md
-│   └── test-generation.md
-├── templates/
-│   ├── unit-test-guidelines.md
-│   └── component-test-guidelines.md
-└── examples/
-    └── example-scenarios.md
+└── TestForge-AI-Agent/
+    ├── README.md
+    ├── .github/
+    │   └── agents/
+    │       └── testforge.agent.md
+    ├── instructions/
+    │   ├── requirement-analysis.md
+    │   ├── codebase-analysis.md
+    │   ├── test-strategy.md
+    │   └── test-generation.md
+    ├── templates/
+    │   ├── unit-test-guidelines.md
+    │   └── component-test-guidelines.md
+    └── examples/
+        └── example-scenarios.md
 ```
