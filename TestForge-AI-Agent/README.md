@@ -88,7 +88,7 @@ TestForge AI is intended to be used as a **user-level custom agent** in VS Code 
 
 ### Minimal setup
 
-1. Register the agent definition with your VS Code / GitHub Copilot custom-agent setup.
+1. Copy or register the agent definition in your user-level VS Code / GitHub Copilot custom-agent setup so it remains available even when you open a different application repository.
    - From the repository root, the agent file is `TestForge-AI-Agent/.github/agents/testforge.agent.md`.
    - Note: `.github` is a hidden directory, so some file-tree views may hide it by default.
 2. The `instructions/`, `templates/`, and `examples/` folders are companion reference material for maintainers and future refinement; they are not auto-loaded by the runtime unless a future integration adds that behavior.
