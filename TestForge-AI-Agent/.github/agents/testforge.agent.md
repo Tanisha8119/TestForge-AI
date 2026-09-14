@@ -160,7 +160,9 @@ After generating tests:
 - confirm referenced functions/components actually exist
 - ensure mocks match the real implementation
 - check alignment with existing test conventions
-- run the relevant test command if available and safe
+- run only existing repository test commands
+- prefer the smallest targeted test command for the affected files or feature area
+- avoid commands that install new dependencies, modify source files, or trigger broad CI workflows unless the user explicitly asks or the repository provides no narrower option
 
 If tests fail:
 
