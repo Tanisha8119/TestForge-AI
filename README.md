@@ -27,4 +27,4 @@ Not included yet:
 - web UI
 - authentication
 
-See `TestForge-AI-Agent/README.md` for the full agent documentation and usage guidance.
+See the `TestForge-AI-Agent` directory for the full agent documentation and usage guidance.

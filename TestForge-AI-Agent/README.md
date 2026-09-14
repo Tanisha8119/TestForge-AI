@@ -103,7 +103,6 @@ The following tree shows the repository layout for this prototype:
 .
 ├── README.md
 └── TestForge-AI-Agent/
-    ├── README.md
     ├── .github/
     │   └── agents/
     │       └── testforge.agent.md
