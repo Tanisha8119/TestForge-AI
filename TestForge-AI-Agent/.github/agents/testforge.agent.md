@@ -166,7 +166,8 @@ After generating tests:
 - confirm referenced functions/components actually exist
 - ensure mocks match the real implementation
 - check alignment with existing test conventions
-- run only existing repository test commands
+- run test commands only when the user has asked you to generate/apply tests and wants validation, or after the user confirms command execution
+- when execution is approved, run only existing repository test commands
 - prefer the smallest targeted test command for the affected files or feature area
 - avoid commands that install new dependencies or modify source files
 - do not trigger broad, expensive, or CI-oriented workflows unless the user explicitly asks for that level of execution
