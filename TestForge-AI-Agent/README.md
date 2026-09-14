@@ -88,7 +88,7 @@ TestForge AI is intended to be used as a **user-level custom agent** in VS Code 
 
 ### Minimal setup
 
-**Prerequisite:** this prototype targets VS Code / GitHub Copilot environments that support user-level custom agents or equivalent markdown-based Copilot customization. For conceptual background on markdown-driven Copilot customization, see GitHub Docs for [Adding repository custom instructions for GitHub Copilot in your IDE](https://docs.github.com/en/copilot/how-tos/configure-custom-instructions-in-your-ide/add-repository-instructions-in-your-ide) and the VS Code docs on [using an `AGENTS.md` file](https://code.visualstudio.com/docs/copilot/customization/custom-instructions#_use-an-agentsmd-file). Those links are background only; the registration path for this prototype is the `testforge.agent.md` file described below. If your current extension version or org policy does not expose the needed customization features, use this repository as a design scaffold until the feature is enabled in your environment.
+**Prerequisite:** this prototype targets VS Code / GitHub Copilot environments that support user-level custom agents or an equivalent way to register markdown-based agent definitions. If your current extension version or org policy does not expose that capability, use this repository as a design scaffold until the feature is enabled in your environment.
 
 1. Copy or register the agent definition in your user-level VS Code / GitHub Copilot custom-agent setup so it remains available even when you open a different application repository.
    - From the repository root, the agent file is `TestForge-AI-Agent/.github/agents/testforge.agent.md`.
@@ -98,6 +98,8 @@ TestForge AI is intended to be used as a **user-level custom agent** in VS Code 
 4. Select **TestForge AI** as the active custom agent and describe the testing scenario in natural language.
 
 > Exact registration steps can vary based on the custom-agent feature or extension version available in your environment, but the reusable agent definition lives at `TestForge-AI-Agent/.github/agents/testforge.agent.md` from the repository root.
+>
+> Background reading only: if you want related documentation for markdown-based Copilot customization, see GitHub Docs for [Adding repository custom instructions for GitHub Copilot in your IDE](https://docs.github.com/en/copilot/how-tos/configure-custom-instructions-in-your-ide/add-repository-instructions-in-your-ide) and the VS Code docs on [using an `AGENTS.md` file](https://code.visualstudio.com/docs/copilot/customization/custom-instructions#_use-an-agentsmd-file). Those links are not the registration path for this prototype's `testforge.agent.md` file.
 
 When the agent is selected while another application repository is open:
 
