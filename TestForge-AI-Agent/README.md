@@ -97,6 +97,8 @@ In other words, the agent definition is reusable; it does **not** assume the cur
 
 ## Project structure
 
+The following tree shows the contents of the `TestForge-AI-Agent/` directory inside this repository:
+
 ```text
 TestForge-AI-Agent/
 ├── README.md
