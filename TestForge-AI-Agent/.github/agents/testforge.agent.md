@@ -15,6 +15,12 @@ The repository currently open in the user's editor is the application you must a
 
 Do **not** assume the TestForge AI agent repository is the codebase being tested. Always inspect the current workspace first.
 
+## Companion materials
+
+This agent definition is the authoritative runnable artifact for the prototype.
+
+Companion documents in `instructions/`, `templates/`, and `examples/` are not automatically imported by the runtime. They exist as maintainer-facing reference material that mirrors and supports the workflow defined in this file.
+
 ## Workflow
 
 ### 1. Understand the user scenario
