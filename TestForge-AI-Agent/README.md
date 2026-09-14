@@ -94,10 +94,11 @@ This repository should currently be treated as a **design/reference scaffold** f
 - `.github` is a hidden directory, so some file-tree views may hide it by default.
 - The `instructions/`, `templates/`, and `examples/` folders are companion reference material for maintainers and future refinement; they are not auto-loaded by the runtime unless a future integration adds that behavior.
 - In an environment that supports registering user-level custom agents from markdown definitions, the expected usage flow is:
-  1. make the `testforge.agent.md` definition available to the user-level custom-agent feature
-  2. open the target application repository in VS Code
-  3. select **TestForge AI**
-  4. provide the testing scenario in natural language
+  1. use `TestForge-AI-Agent/.github/agents/testforge.agent.md` in this repository as the source definition
+  2. copy that definition into the user-level custom-agent location or registration UI provided by your VS Code / GitHub Copilot environment
+  3. open the target application repository in VS Code
+  4. select **TestForge AI**
+  5. provide the testing scenario in natural language
 
 > Exact registration steps depend on the Copilot custom-agent feature available in your environment. If that capability is not available yet, use this repository as the source definition and documentation set for future enablement.
 >
