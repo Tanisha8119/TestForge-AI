@@ -12,6 +12,15 @@ Use these conventions when the requested behavior is best validated through comp
 - loading, empty, and disabled states
 - permission-driven UI behavior
 
+## Repository-aware defaults
+
+- reuse existing test file placement and naming conventions
+- preserve current render helper/wrapper usage
+- preserve existing assertion style and matcher patterns
+- preserve local mocking/fixture patterns for services, API clients, and hooks
+- keep output minimal and scenario-focused
+- if repository evidence uses Gherkin/Reqnroll for behavior tests, preserve `.feature` style and folder/naming conventions
+
 ## Good component-test characteristics
 
 - interacts with the component the way a user would
@@ -36,3 +45,16 @@ Use these conventions when the requested behavior is best validated through comp
 - reuse local wrapper/setup patterns
 - assert meaningful UI behavior rather than internal implementation details
 - avoid generating component tests for logic that is better covered by unit tests alone
+
+Generate component-test BDD-style output only if the repository already uses that style or the user explicitly requests it.
+
+If existing feature files cover the same module/feature, prefer extending those files instead of creating a new one.
+
+## Minimal output template
+
+- **Suite name**: aligned with local style
+- **Cases**:
+  - render/default state
+  - interaction/result state
+  - failure/recovery or permission state when applicable
+- **Assertions**: user-visible outcomes and callback effects
