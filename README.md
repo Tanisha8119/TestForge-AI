@@ -69,6 +69,11 @@ Important: the TestForge repository is the scaffold only; it is **not** the appl
 - Unit/component test-type selection
 - Repository-aligned test generation guidance/output
 - Clear summary of findings, generated content, and assumptions
+- Optional Azure Boards intake: read a work item's Title/Description/Acceptance
+  Criteria as the scenario input (`scripts/fetch-azure-workitem.ps1`, read-only, PAT
+  supplied via environment variable)
+- Optional GitHub pull request creation for generated tests, only on explicit user
+  request (`scripts/create-github-pr.ps1`, requires `git` + authenticated `gh` CLI)
 
 ## Expected output structure
 
@@ -83,9 +88,11 @@ Each agent response should explicitly summarize:
 
 ## Out of scope / not yet implemented
 
-- Automatic commit/push/PR creation
-- Azure DevOps / PBI integration
-- Authentication
+- Automatic commit/push/PR creation for Azure DevOps Repos (GitHub PR creation is
+  supported; see `scripts/create-github-pr.ps1`)
+- Writing back to Azure Boards (work-item intake is read-only)
+- Authentication (the agent uses credentials/tokens the user already has; it does not
+  manage logins or access control)
 - External database storage
 - Full web UI
 
@@ -116,5 +123,6 @@ Each agent response should explicitly summarize:
 	├── .github/agents/testforge.agent.md
 	├── instructions/
 	├── templates/
-	└── examples/
+	├── examples/
+	└── scripts/
 ```
