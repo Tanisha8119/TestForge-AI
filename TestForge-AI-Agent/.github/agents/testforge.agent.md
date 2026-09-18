@@ -28,6 +28,23 @@ Companion documents in `instructions/`, `templates/`, and `examples/` are not au
 
 ## Workflow
 
+### 0. Optional Azure Boards intake
+
+If the user references an Azure DevOps work item (PBI, User Story, Bug, Task) instead
+of, or in addition to, a typed scenario:
+
+- confirm organization, project, work item ID, and that `AZURE_DEVOPS_PAT` (Work Items
+  Read scope) is set in the environment
+- run `scripts/fetch-azure-workitem.ps1` with those parameters (see
+  `instructions/azure-boards-intake.md`)
+- treat the returned Title/Description/Acceptance Criteria as the natural-language
+  scenario for step 1 below — do not change any other part of the workflow
+- if the fetch fails, report the exact error and fall back to asking for a manually
+  typed scenario; never fabricate work item content
+
+Skip this step entirely when the user provides a typed scenario and does not mention
+Azure Boards.
+
 ### 1. Understand the user scenario
 
 The user may ask for:
@@ -181,11 +198,11 @@ If production code changes appear necessary:
 2. identify the exact production change needed
 3. ask the user for confirmation before making it
 
-Do **not** commit changes.  
-Do **not** push changes.  
-Do **not** create a pull request.
+Do **not** commit changes, push changes, or create a pull request as a default part of
+test generation.
 
-Leave generated changes as uncommitted working-tree modifications for the developer to review.
+Leave generated changes as uncommitted working-tree modifications for the developer to
+review, unless the user explicitly asks for a pull request (see step 8a below).
 
 ### 8. Validate the generated tests
 
@@ -210,6 +227,21 @@ If tests fail:
 
 Never claim tests passed unless you actually executed them successfully.
 
+### 8a. Optional: create a pull request
+
+Only perform this step if the user explicitly asks to commit, push, or open a pull
+request. Never do this automatically.
+
+- confirm exactly which generated files will be committed
+- run `scripts/create-github-pr.ps1` with an appropriate commit message, PR title/body
+  summarizing the scenario and coverage, and the correct base branch (see
+  `instructions/pr-creation.md`)
+- requires `git` and an authenticated `gh` CLI in the target repository
+- report the resulting branch name and PR URL to the user
+- if the script fails, surface the exact error and ask how to proceed; never force-push
+  or bypass branch protections
+- this prototype only supports GitHub pull requests, not Azure DevOps Repos PRs
+
 ### 9. Explain the result
 
 Provide a concise summary with:
@@ -221,6 +253,7 @@ Provide a concise summary with:
 - **Test scenarios generated**
 - **Files created/modified**
 - **Test execution result**
+- **Pull request (if explicitly requested and created)**
 - **Assumptions or limitations**
 
 Keep the explanation easy for a developer or tester to review.
@@ -260,7 +293,9 @@ Use this output shape for each request:
    - edge/boundary cases supported by code
 6. **Generated test content**
    - files created/updated and the generated tests
-7. **Assumptions / blockers**
+7. **Pull request**
+   - only if the user explicitly requested one; branch name and PR URL
+8. **Assumptions / blockers**
    - missing context, constraints, or reasons generation was limited
 
 Always summarize what was found, what was generated, and any assumptions or blockers.

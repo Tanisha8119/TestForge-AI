@@ -68,12 +68,14 @@ This hackathon prototype supports:
 
 This prototype does **not** currently include:
 
-- Azure DevOps integration
-- PBI/work-item lookup
+- Azure DevOps Repos PR creation (GitHub PR creation is supported, on explicit request;
+  see `scripts/create-github-pr.ps1`)
+- Writing back to Azure Boards (work-item intake is read-only; see
+  `scripts/fetch-azure-workitem.ps1`)
 - external database storage
 - a web application or dashboard
-- authentication or multi-user access control
-- automatic commit, push, or pull request creation
+- authentication or multi-user access control (the agent uses credentials the user
+  already has; it does not manage logins or access control)
 
 It also should not:
 
@@ -113,6 +115,19 @@ When the agent is selected while another application repository is open:
 
 In other words, the agent definition is reusable; it does **not** assume the current repository is the system under test.
 
+## Optional integrations
+
+Two capabilities are available but never run automatically — only on explicit user
+request:
+
+- **Azure Boards intake** (read-only): fetch a work item's Title/Description/
+  Acceptance Criteria as the scenario input. See
+  `instructions/azure-boards-intake.md` and `scripts/fetch-azure-workitem.ps1`.
+  Requires an `AZURE_DEVOPS_PAT` environment variable with Work Items (Read) scope.
+- **GitHub pull request creation**: commit generated tests, push a branch, and open a
+  PR. See `instructions/pr-creation.md` and `scripts/create-github-pr.ps1`. Requires
+  `git` and an authenticated `gh` CLI. Azure DevOps Repos PRs are not supported.
+
 ## Project structure
 
 The following tree shows the **repository-root layout** for this prototype:
@@ -128,10 +143,16 @@ The following tree shows the **repository-root layout** for this prototype:
     │   ├── requirement-analysis.md
     │   ├── codebase-analysis.md
     │   ├── test-strategy.md
-    │   └── test-generation.md
+    │   ├── test-generation.md
+    │   ├── azure-boards-intake.md
+    │   └── pr-creation.md
     ├── templates/
     │   ├── unit-test-guidelines.md
     │   └── component-test-guidelines.md
-    └── examples/
-        └── example-scenarios.md
+    ├── examples/
+    │   └── example-scenarios.md
+    └── scripts/
+        ├── README.md
+        ├── fetch-azure-workitem.ps1
+        └── create-github-pr.ps1
 ```
